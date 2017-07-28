@@ -255,6 +255,7 @@ module ActiveRecord
       end
     end
 
-    alias_method_chain :build_arel, :extensions
+    alias_method :build_arel_without_extensions, :extensions
+    alias_method :extensions, :build_arel_with_extensions
   end
 end
